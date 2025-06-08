@@ -12,7 +12,10 @@ from guess import register_guess_handlers
 
 
 # Load environment variables
-load_dotenv()
+if os.getenv("RENDER") != "true":
+    from dotenv import load_dotenv
+    load_dotenv()
+
 api_id = int(os.getenv("API_ID"))
 api_hash = os.getenv("API_HASH")
 bot_token = os.getenv("BOT_TOKEN")
